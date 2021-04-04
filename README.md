@@ -67,7 +67,7 @@ $ sudo service dbus start
 
 **Refs:**
 
-* ** 1.** [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* **1.** [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 * **2.** [How to Uninstall or Reinstall Windows 10 Ubuntu Bash Shell](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 * **3.** [Run ubuntu-desktop on WSL Ubuntu 18.04 LTS](https://askubuntu.com/questions/1162808/run-ubuntu-desktop-on-wsl-ubuntu-18-04-lts)
 * **4.** [Install GUI Desktop in WSL2 Ubuntu 20.04 LTS in Windows 10](https://harshityadav95.medium.com/install-gui-desktop-in-wsl2-ubuntu-20-04-lts-in-windows-10-ae0d8d9e4459)
