@@ -84,5 +84,3 @@ $ sudo service dbus start
 * **6.** [Research Repository in GitHub](https://github.com/enogrob/research-configuring-laptop-with-windows-subsystem-linux-wsl-2)
 The Windows Subsystem for Linux(WSL), introduced in the Anniversary Update, became a stable feature in the Fall Creators Update. You can now run Ubuntu Kali and openSUSE on Windows, with Fedora and more Linux distributions coming soon.
 
-![](https://trello-attachments.s3.amazonaws.com/5e73d80ec3e291163d4cc462/60642cb859826131a6f908fd/3ec47e0321169049ffb76332bad56541/File_000.jpeg)
-
