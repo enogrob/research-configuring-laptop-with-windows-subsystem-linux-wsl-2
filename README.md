@@ -8,10 +8,19 @@ Solution Integrator Experienced - Certified by Ericsson
 ![project image](images/project.png)
 
 **About**
+**[WSL: Operational Systems as Apps](https://enogrob.medium.com/wsl-linux-operating-systems-as-apps-b4a490690a9f)**
 
-The Windows Subsystem for Linux(WSL), introduced in the Anniversary Update, became a stable feature in the Fall Creators Update. You can now run Ubuntu Kali and openSUSE on Windows, with Fedora and more Linux distributions coming soon.
+Why split up if you can have it together, instead of having a computer with "Multiple Boot" or even [Virtual Machines](https://en.wikipedia.org/wiki/Virtual_machine) in order to be able to operate Operating Systems together, there is a Microsoft answer to this and it is [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (Windows Subsystem for Linux). 
 
-![](https://trello-attachments.s3.amazonaws.com/5e73d80ec3e291163d4cc462/60642cb859826131a6f908fd/3ec47e0321169049ffb76332bad56541/File_000.jpeg)
+This is achieved by making the distributions in reality apps and that after being installed has the same privilege as an app, having at your disposal the computer resources, performance and GUI, and which are available in the [Microsoft Store](https://en.wikipedia.org/wiki/Microsoft_Store), together with the terminal called of [Windows Terminal Preview](https://en.wikipedia.org/wiki/Windows_Terminal).
+
+The laptop provided by Eicon, comes with WSL1, and supports WSL2, although it is a feature flag that has to be activated and then updated to WSL2, which can be downloaded. Development applications such as [VsCode](https://code.visualstudio.com/) and [Rubymine](https://www.jetbrains.com/ruby/) already support WSL2 and I recently updated the [Obras DevTools](https://github.com/enogrob/research-obras-devtools) Works as well. For more information see research:
+
+* [Configuring Laptop with Windows Subsystem Linux - WSL-2](https://trello.com/c/5QSr6Os3/2336-configuring-laptop-with-windows-subsystem-linux-wsl-2)
+
+![](https://trello-attachments.s3.amazonaws.com/5e73d80ec3e291163d4cc462/60642cb859826131a6f908fd/06ceabdf4ae691b11647491c57613bb0/File_000.jpeg)
+
+![](https://trello-attachments.s3.amazonaws.com/5e73d80ec3e291163d4cc462/60642cb859826131a6f908fd/0eb72599d114dac88e40ff413f688225/screenshot_597.png)
 
 **Activities:**
 
@@ -67,9 +76,13 @@ $ sudo service dbus start
 
 **Refs:**
 
-* **1.** [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* ** 1.** [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 * **2.** [How to Uninstall or Reinstall Windows 10 Ubuntu Bash Shell](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 * **3.** [Run ubuntu-desktop on WSL Ubuntu 18.04 LTS](https://askubuntu.com/questions/1162808/run-ubuntu-desktop-on-wsl-ubuntu-18-04-lts)
 * **4.** [Install GUI Desktop in WSL2 Ubuntu 20.04 LTS in Windows 10](https://harshityadav95.medium.com/install-gui-desktop-in-wsl2-ubuntu-20-04-lts-in-windows-10-ae0d8d9e4459)
 * **5.** [Kali Linux on Windows in 5min (WSL 2 GUI](https://www.youtube.com/watch?v=AfVH54edAHU)
 * **6.** [Research Repository in GitHub](https://github.com/enogrob/research-configuring-laptop-with-windows-subsystem-linux-wsl-2)
+The Windows Subsystem for Linux(WSL), introduced in the Anniversary Update, became a stable feature in the Fall Creators Update. You can now run Ubuntu Kali and openSUSE on Windows, with Fedora and more Linux distributions coming soon.
+
+![](https://trello-attachments.s3.amazonaws.com/5e73d80ec3e291163d4cc462/60642cb859826131a6f908fd/3ec47e0321169049ffb76332bad56541/File_000.jpeg)
+
