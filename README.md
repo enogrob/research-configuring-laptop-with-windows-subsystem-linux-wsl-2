@@ -42,6 +42,26 @@ $ sudo service dbus start
 
 $ ip addr
 ```
+
+If you want to install `mysql 5.7` in Kali-Linux:
+
+```
+sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
+sudo rm -rf /etc/mysql
+sudo apt-get update --fix-missing
+cd ~Downloads
+sudo apt list | grep mysql-server
+wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-server_5.7.28-1ubuntu19.04_amd64.deb-bundle.tar
+tar -xvf mysql-server_5.7.28-1ubuntu19.04_amd64.deb-bundle.tar
+sudo apt-get install libaio1
+sudo dpkg-preconfigure mysql-community-server_*.deb
+sudo dpkg -i mysql-{common,community-client,client,community-server,server}_*.deb
+sudo apt-get update --fix-missing
+sudo apt-get -f install
+sudo service mysql status
+sudo service mysql start
+```
+
 ---
 
 Configuring  **Ubuntu 18.04** to remote `GUI`  connection (See **Ref.4**)
@@ -82,5 +102,4 @@ $ sudo service dbus start
 * **4.** [Install GUI Desktop in WSL2 Ubuntu 20.04 LTS in Windows 10](https://harshityadav95.medium.com/install-gui-desktop-in-wsl2-ubuntu-20-04-lts-in-windows-10-ae0d8d9e4459)
 * **5.** [Kali Linux on Windows in 5min (WSL 2 GUI](https://www.youtube.com/watch?v=AfVH54edAHU)
 * **6.** [Research Repository in GitHub](https://github.com/enogrob/research-configuring-laptop-with-windows-subsystem-linux-wsl-2)
-The Windows Subsystem for Linux(WSL), introduced in the Anniversary Update, became a stable feature in the Fall Creators Update. You can now run Ubuntu Kali and openSUSE on Windows, with Fedora and more Linux distributions coming soon.
 
