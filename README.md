@@ -3,7 +3,7 @@ Roberto Nogueira
 BSd EE, MSd CE
 Solution Integrator Experienced - Certified by Ericsson
 ```
-# Project Name
+# Research Configuring Laptop with Windows Subsystem Linux WSL-2
 
 ![project image](images/project.png)
 
@@ -14,9 +14,8 @@ Why split up if you can have it together, instead of having a computer with "Mul
 
 This is achieved by making the distributions in reality apps and that after being installed has the same privilege as an app, having at your disposal the computer resources, performance and GUI, and which are available in the [Microsoft Store](https://en.wikipedia.org/wiki/Microsoft_Store), together with the terminal called of [Windows Terminal Preview](https://en.wikipedia.org/wiki/Windows_Terminal).
 
-The laptop provided by Eicon, comes with WSL1, and supports WSL2, although it is a feature flag that has to be activated and then updated to WSL2, which can be downloaded. Development applications such as [VsCode](https://code.visualstudio.com/) and [Rubymine](https://www.jetbrains.com/ruby/) already support WSL2 and I recently updated the [Obras DevTools](https://github.com/enogrob/research-obras-devtools) Works as well. For more information see research:
-
-* [Configuring Laptop with Windows Subsystem Linux - WSL-2](https://trello.com/c/5QSr6Os3/2336-configuring-laptop-with-windows-subsystem-linux-wsl-2)
+Usually laptop with Windows 10, comes with WSL1, and supports WSL2, although it is a feature flag that has to be activated and then updated to WSL2, which can be downloaded. Development applications such as [VsCode](https://code.visualstudio.com/) and [Rubymine](https://www.jetbrains.com/ruby/) already support WSL2. For more information see research:
+[Configuring Laptop with Windows Subsystem Linux - WSL-2](https://trello.com/c/5QSr6Os3/2336-configuring-laptop-with-windows-subsystem-linux-wsl-2)
 
 ![](https://trello-attachments.s3.amazonaws.com/5e73d80ec3e291163d4cc462/60642cb859826131a6f908fd/06ceabdf4ae691b11647491c57613bb0/File_000.jpeg)
 
@@ -91,12 +90,39 @@ $ sudo service xrdp start
 $ sudo service dbus start
 ```
 
+One of the disadvantages of WSL2 (at least until W10) was not keeping the services up after Windows startup. Here it is some workaround to ovvercome that:
+```
+#!/bin/bash
+! pgrep dbus > /dev/null && sudo service dbus start > /dev/null
+! pgrep mysql > /dev/null && sudo service mysql start > /dev/null
+! pgrep redis-server > /dev/null && sudo service redis-server start > /dev/null
+if ! sudo service --status-all |& grep xrdp |& grep +  > /dev/null && test -f /var/run/xrdp/xrdp.pid; then
+  sudo rm -f /var/run/xrdp/xrdp.pid
+fi	
+! sudo service --status-all |& grep xrdp |& grep +  > /dev/null && sudo service xrdp start > /dev/null
+```
 
+To verify:
+```
+#!/bin/bash
+sudo service --status-all |& grep redis-server
+sudo service --status-all |& grep mysql
+sudo service --status-all |& grep xrdp
+sudo service --status-all |& grep dbus
+
+```
+An alias for Ubuntu App to automatically connect to the graphical part via a remote desktop:
+```
+export IP_ENV=$(ip addr | grep inet | grep eth0 | awk '{print $2}' | cut -d "/" -f 1)
+
+echo -n "Ip: ";echo -e "\033[0;32m\033[4m${IP_ENV}\033[0m\033[0m";echo " " 
+alias rem="cmdkey.exe /generic:"$IP_ENV" /user:"enogrob" /pass:"*****";mstsc.exe /v:$IP_ENV"
+```
 ---
 
 **Refs:**
 
-* ** 1.** [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* **1.** [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 * **2.** [How to Uninstall or Reinstall Windows 10 Ubuntu Bash Shell](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 * **3.** [Run ubuntu-desktop on WSL Ubuntu 18.04 LTS](https://askubuntu.com/questions/1162808/run-ubuntu-desktop-on-wsl-ubuntu-18-04-lts)
 * **4.** [Install GUI Desktop in WSL2 Ubuntu 20.04 LTS in Windows 10](https://harshityadav95.medium.com/install-gui-desktop-in-wsl2-ubuntu-20-04-lts-in-windows-10-ae0d8d9e4459)
